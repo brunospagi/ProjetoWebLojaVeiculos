@@ -12,7 +12,7 @@ class  VeiculosModel {
 
     public function save()
     {
-        
+           
         $dao = new VeiculosDAO();
 
         if(empty($this->id))
