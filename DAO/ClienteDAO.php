@@ -13,18 +13,13 @@ class ClienteDAO{
         $this->conexao = new PDO($dsn,'root','2013@Als');
     }
 
-    public function insertCliente()
+    public function insert()
     {
-
-
     
-
     }
 
-    public function updateCliente()
+    public function update()
     {
-
-
         
     }
 }

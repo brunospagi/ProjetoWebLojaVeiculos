@@ -35,7 +35,7 @@ class AdminController{
         }
         
         $model = new LoginModel();
-        $model->listarUsuario();
+        $model->select();
         include 'View/pages/admin/_login_criar_admin.php';
     }
 
@@ -54,7 +54,7 @@ class AdminController{
             $model->email = strtoupper($_POST['email']);
             $model->cpf = strtoupper($_POST['cpf']);
             $model->tipo = strtoupper($_POST['tipo']);
-            $model->criarUsuario(); 
+            $model->insert(); 
             header("Location: /admin/usuarios?success=".$model->resposta."");
         }
         else
@@ -87,7 +87,7 @@ class AdminController{
     public static function deleteUsuario()
     {   
         $model = new LoginModel();
-        $model->deleteUsuario((int)$_GET['id']);
+        $model->delete((int)$_GET['id']);
         echo '<script>alert("Usuario foi Deletado com Sucesso!!");</script>';
         header("Location: /admin/usuarios ");
     }

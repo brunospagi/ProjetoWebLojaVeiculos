@@ -8,15 +8,15 @@ class ClienteModel{
     public $rows,$resultado;
 
 
-    public function insertCliente()
+    public function insert()
     {
         $dao = new ClienteDAO();
 
         if(empty($this->id))
         {
-            $dao->insertCliente($this);
+            $dao->insert($this);
         }else{
-            $dao->updateCliente($this);
+            $dao->update($this);
         }
     }
 

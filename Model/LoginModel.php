@@ -6,34 +6,34 @@ class LoginModel{
 
     public $rows,$resposta;
     
-    public function criarUsuario()
+    public function insert()
     {
 
         $dao = new LoginDAO();
         if(empty($this->id))
         {
-            $dao->criarUsuario($this);
+            $dao->insert($this);
         }else{
-            $dao->updateUsuario($this);
+            $dao->update($this);
         }
     }
 
-    public function listarUsuario()
+    public function select()
     {
         $dao = new LoginDAO();
-        $this->rows = $dao->selectUsuario();
+        $this->rows = $dao->select();
     }
 
-    public function deleteUsuario(int $id)
+    public function delete(int $id)
     {
         $dao = new LoginDAO();
-        $dao->deletarUsuario($id);
+        $dao->delete($id);
     }
 
-    public function updateUsuario($id)
+    public function update($id)
     {
       $dao = new LoginDAO();
-      $dao->updateUsuario($id);
+      $dao->update($id);
     }
 
     public function logarSistama()

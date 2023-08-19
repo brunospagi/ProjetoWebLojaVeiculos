@@ -12,7 +12,7 @@ class LoginDAO{
         $this->conexao = new PDO($dsn,'root','2013@Als');
     }
 
-    public function criarUsuario(LoginModel $model)
+    public function insert(LoginModel $model)
     {
         $sql = "SELECT * FROM Usuarios WHERE Email=? OR Cpf=? ";
         $stmt = $this->conexao->prepare($sql);
@@ -67,7 +67,7 @@ class LoginDAO{
 
     }
 
-    public function deletarUsuario(int $id)
+    public function delete(int $id)
     {
         $sql = "DELETE FROM Usuarios WHERE Id=? ";
         $stmt = $this->conexao->prepare($sql);
@@ -75,7 +75,7 @@ class LoginDAO{
         $stmt->execute(); 
     }
 
-    public function updateUsuario(LoginModel $model)
+    public function update(LoginModel $model)
     {
 
         if(empty($model->senha)){
@@ -120,7 +120,7 @@ class LoginDAO{
         
     }
 
-    public function selectUsuario()
+    public function select()
     {
         $sql = "SELECT Id,Nome,Email,Cpf,Tipo FROM Usuarios ";
         $stmt = $this->conexao->prepare($sql);
