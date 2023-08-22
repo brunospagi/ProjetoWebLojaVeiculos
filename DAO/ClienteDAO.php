@@ -49,8 +49,28 @@ class ClienteDAO{
     
     }
 
-    public function update()
+    public function update(ClienteModel $model)
     {
-        
+        $sql = " UPDATE Clientes SET Email=?,Cpf=?,Telefone=?,Cep=?,Rua=?,Numero=?,
+        Complemento=?,Bairro=?,Cidade=?,Estado=?
+        WHERE Id=? ";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->nome);
+        $stmt->bindValue(2, $model->email);
+        $stmt->bindValue(3, $model->cpf);
+        $stmt->bindValue(4, $model->telefone);
+        $stmt->bindValue(5, $model->cep);
+        $stmt->bindValue(6, $model->rua);
+        $stmt->bindValue(7, $model->numero);
+        $stmt->bindValue(8, $model->complemento);
+        $stmt->bindValue(9, $model->bairro);
+        $stmt->bindValue(10, $model->cidade);
+        $stmt->bindValue(11, $model->estado);
+        $stmt->bindValue(12, $model->id);
+        $stmt->execute();
+
+        return $model->resultado = 'duplicado';
+
     }
 }
